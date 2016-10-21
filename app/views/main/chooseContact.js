@@ -21,16 +21,18 @@ import { Actions } from 'react-native-router-flux';
 var ToolbarAndroid = require('ToolbarAndroid');
 var toolbarActions = [];
     
-export default class editEvent extends React.Component {
+export default class CreateFlow extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {}; 
+    
   }
   
   render() {
     return (
       <View style={styles.container}>        
-        <Text>hi</Text>
+        <Text> hi </Text>
       </View>
     );
   }
@@ -38,10 +40,24 @@ export default class editEvent extends React.Component {
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      
+  },
+  
+  toolbar: {
+    flex: 1,
+    backgroundColor: 'skyblue',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+      flex: 0,
+      width: 200,
+      height: 220
+  },
+  body: {
+    flex: 10
   },
 });
-
-
-
-

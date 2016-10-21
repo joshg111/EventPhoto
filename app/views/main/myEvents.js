@@ -10,7 +10,7 @@ import {
   Image
 } from 'react-native';
 
-import {Container, Content, Card, CardItem, Thumbnail, Text, Button } from 'native-base';
+import {Icon, Container, Content, Card, CardItem, Thumbnail, Text, Button } from 'native-base';
 
 // Flux
 import AltActions from '../../actions/actions';
@@ -21,6 +21,7 @@ import { Actions } from 'react-native-router-flux';
 import Toolbar from '../../utils/toolbar'
 var ToolbarAndroid = require('ToolbarAndroid');
 var toolbarActions = [];
+var MARGIN = 10; 
     
 export default class MyEvents extends React.Component {
   constructor(props) {
@@ -68,46 +69,6 @@ export default class MyEvents extends React.Component {
     Actions.EditEvent();
   }
   
-  renderBody() {
-    var data = <Container style={styles.hello}>
-      <Content>
-        <Card>
-          <CardItem style={styles.cardHeader}>
-            <Thumbnail source={{uri: 'https://lh3.googleusercontent.com/NDgdC_lMXy6ALHSTFr1gw3ugZ1g7hxetDjiXF7kNbfFzZZ0Fcb4N7lWxYA8LWFVMN88C7LC_=w1920-h1200-no'}} />
-            <Text>Hayley</Text>
-            <Text note>April 15, 2016</Text>
-            <Button> Edit </Button>
-          </CardItem>
-
-          <CardItem cardBody onPress={this.eventPress}>
-            
-            <Image style={{ resizeMode: 'cover' }} source={{uri: 'http://bloggingtips.moneyreigninc.netdna-cdn.com/wp-content/uploads/2014/12/Event-Blogging-Strategies.jpg'}} onPress={this.eventPress} />
-            
-            
-              <Text onPress={this.eventPress}>
-                Had a great time at the concert. 
-              </Text>
-            
-            <Button transparent textStyle={{color: '#87838B'}}>
-                389 Stars
-            </Button>
-          </CardItem>
-        </Card>
-      </Content>
-    </Container>;
-    
-    var text = <Text style={styles.hello}> Please create or join an event. </Text>;
-    
-    if (data){
-      body=data;
-    }
-    else {
-      body = text; 
-    }
-    //body = text; 
-    return body;
-  }
-  
   renderListHeader(title, relTime) {
     return (
       <View style={styles.listHeader}>
@@ -131,13 +92,7 @@ export default class MyEvents extends React.Component {
       </View>
     );
   }
-  
-  renderListView(image_uri) {
-    return (
-      <View style={styles.viewList} />
-    );
-  }
-  
+    
   renderList() {
     
     return (
@@ -150,22 +105,19 @@ export default class MyEvents extends React.Component {
     );    
   }
     
+  createFlow() {
+    Actions.CreateFlow();
+  }
+    
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.topbar}>
-          <ToolbarAndroid
-            title="MyEvents"
-            style={styles.toolbar} 
-            actions={toolbarActions}
-            onActionSelected={this.onActionSelected}/>
-          <View style={styles.myToolbar}>
-            <Toolbar page="MyEvents"/>
-          </View>
+        <View style={styles.buttons}>
+          <Button onPress={this.createFlow}><Icon name="ios-add" /> Create Flow</Button>
         </View>
         
         {this.renderList()}
-
+        
       </View>
     );
   }
@@ -184,6 +136,16 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch'
     
   },
+  
+  buttons: {
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: "center",
+    marginTop: MARGIN,
+    marginLeft: MARGIN,
+    marginRight: MARGIN,    
+  },
+  
   image: {
     flex: 4,    
   },
@@ -191,9 +153,9 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'pink',
     height: 150,
-    marginTop: 20,
-    marginLeft: 20,
-    marginRight: 20,    
+    marginTop: MARGIN,
+    marginLeft: MARGIN,
+    marginRight: MARGIN,    
   },  
   cardHeader: {
     flex: 1,

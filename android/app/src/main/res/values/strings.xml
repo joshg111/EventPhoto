@@ -17,4 +17,5 @@
     <string name="action_register_short">Register</string>
     <string name="action_register">Register</string>
     <string name="action_already_member">Already a Member</string>
+    <string name="facebook_app_id">264602983919550</string>
 </resources>

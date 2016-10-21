@@ -12,6 +12,8 @@ import {
   TextInput
 } from 'react-native';
 
+import {Icon, Button } from 'native-base';
+
 // Flux
 import AltActions from '../../actions/actions';
 import AltStore from '../../stores/store';
@@ -102,14 +104,14 @@ export default class EditProfile extends React.Component {
     } 
   }
   
+  save() {
+    AltActions.setProfile({name: this.state.name, gender: this.state.gender, pic_source: this.state.pic_source});
+    Actions.pop(); 
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <ToolbarAndroid
-          title="Hello!"
-          style={styles.toolbar} 
-          actions={toolbarActions}
-          onActionSelected={this.onActionSelected.bind(this)}/>
         <View style={styles.imageBox}>
           <Image
             style={styles.image}
@@ -131,6 +133,8 @@ export default class EditProfile extends React.Component {
               underlayColor="#202020">
               <Text style={styles.hello}>{'Change Profile Picture'}</Text>
             </TouchableHighlight>
+            
+            <Button onPress={this.save.bind(this)} style={{marginTop: 10}}>Save</Button>
           </View>
         </View>
       </View>

@@ -65,16 +65,6 @@ export default class Main extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.topbar}>
-          <ToolbarAndroid
-            title="Profile"
-            style={styles.toolbar} 
-            actions={toolbarActions}
-            onActionSelected={this.onActionSelected}/>
-          <View style={styles.myToolbar}>
-            <Toolbar page="Profile"/>
-          </View>
-        </View>
         <View style={styles.imageBox}>
           <Image
             style={styles.image}

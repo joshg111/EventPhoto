@@ -14,8 +14,10 @@
     "native-base": "^0.4.7",
     "react": "15.0.2",
     "react-native": "^0.26.3",
+    "react-native-contacts": "^0.2.8",
+    "react-native-fbsdk": "^0.2.2",
     "react-native-image-picker": "^0.19.4",
-    "react-native-router-flux": "^3.26.24",
+    "react-native-router-flux": "^3.31.0",
     "react-native-vector-icons": "^2.0.3"
   }
 }
